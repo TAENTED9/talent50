@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  body { margin: 0; background: #0E0F0D; color: #F2EFE7; font-family: 'Hanken Grotesk', sans-serif; }
+  ::selection { background: #0E0F0D; color: #F2EFE7; }
+  a { color: inherit; text-decoration: none; }
+  @keyframes t50cue { 0%,100% { transform: translateY(0); opacity: .5; } 50% { transform: translateY(7px); opacity: 1; } }
+  section { scroll-margin-top: 80px; }
+</style>
+</helmet>
+
+<div style="background:#0E0F0D; overflow-x:hidden;">
+
+  <!-- ===================== NAV ===================== -->
+  <header style="position:fixed; top:0; left:0; right:0; z-index:50; padding:{{ navPad }}; background:{{ navBg }}; border-bottom:{{ navBorder }}; backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); transition:padding .35s ease, background .35s ease, border-color .35s ease;">
+    <div style="max-width:1320px; margin:0 auto; padding:0 clamp(20px,5vw,72px); display:flex; align-items:center; justify-content:space-between; gap:24px;">
+      <a href="#home" style="display:flex; align-items:center;">
+        <img src="assets/logo-white.png" alt="Talent 50" style="height:34px; width:auto; display:block;">
+      </a>
+      <nav style="display:flex; align-items:center; gap:38px; font-size:13.5px; font-weight:500; letter-spacing:.02em; text-transform:uppercase;" data-navlinks="">
+        <a href="#about" style="opacity:.72; transition:opacity .2s;" onMouseOver="{{ navHover }}" onMouseOut="{{ navOut }}">What we do</a>
+        <a href="#group" style="opacity:.72; transition:opacity .2s;" onMouseOver="{{ navHover }}" onMouseOut="{{ navOut }}">The group</a>
+        <a href="#market" style="opacity:.72; transition:opacity .2s;" onMouseOver="{{ navHover }}" onMouseOut="{{ navOut }}">Market</a>
+        <a href="#impact" style="opacity:.72; transition:opacity .2s;" onMouseOver="{{ navHover }}" onMouseOut="{{ navOut }}">Impact</a>
+        <a href="#contact" style="display:inline-flex; align-items:center; gap:8px; background:#F2EFE7; color:#0E0F0D; padding:11px 20px; font-weight:600; opacity:1; text-transform:none;">Partner with us</a>
+      </nav>
+      <button aria-label="Menu" onClick="{{ toggleMenu }}" data-menubtn="" style="display:none; background:transparent; border:1px solid rgba(242,239,231,.3); color:#F2EFE7; width:44px; height:44px; cursor:pointer; align-items:center; justify-content:center; font-size:18px;">☰</button>
+    </div>
+  </header>
+
+  <!-- mobile menu overlay -->
+  <div style="position:fixed; inset:0; z-index:49; background:rgba(14,15,13,.98); display:{{ menuDisplay }}; flex-direction:column; padding:96px clamp(20px,6vw,40px) 40px; gap:6px;">
+    <a href="#about" onClick="{{ closeMenu }}" style="font-family:'Bricolage Grotesque'; font-size:30px; font-weight:700; padding:14px 0; border-bottom:1px solid rgba(242,239,231,.1);">What we do</a>
+    <a href="#group" onClick="{{ closeMenu }}" style="font-family:'Bricolage Grotesque'; font-size:30px; font-weight:700; padding:14px 0; border-bottom:1px solid rgba(242,239,231,.1);">The group</a>
+    <a href="#market" onClick="{{ closeMenu }}" style="font-family:'Bricolage Grotesque'; font-size:30px; font-weight:700; padding:14px 0; border-bottom:1px solid rgba(242,239,231,.1);">Market</a>
+    <a href="#impact" onClick="{{ closeMenu }}" style="font-family:'Bricolage Grotesque'; font-size:30px; font-weight:700; padding:14px 0; border-bottom:1px solid rgba(242,239,231,.1);">Impact</a>
+    <a href="#contact" onClick="{{ closeMenu }}" style="margin-top:18px; display:inline-flex; align-items:center; gap:8px; align-self:flex-start; background:#F2EFE7; color:#0E0F0D; padding:14px 24px; font-weight:600; font-size:17px;">Partner with us</a>
+  </div>
+
+  <!-- ===================== HERO ===================== -->
+  <section id="home" style="position:relative; min-height:100vh; display:flex; align-items:flex-end; overflow:hidden; padding-bottom:clamp(48px,7vh,96px);">
+    <div data-parallax="0.10" style="position:absolute; inset:-12% 0 -12% 0; z-index:0; background:#121310; filter:grayscale(0.25);">
+      <div style="position:absolute; right:5%; bottom:8%; font-family:'Hanken Grotesk'; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:rgba(242,239,231,.3); border:1px dashed rgba(242,239,231,.18); padding:9px 14px; white-space:nowrap;">Full-bleed photo · grassroots match, dust &amp; floodlights</div>
+    </div>
+    <div style="position:absolute; inset:0; z-index:1; background:linear-gradient(90deg, rgba(14,15,13,.95) 0%, rgba(14,15,13,.84) 40%, rgba(14,15,13,.42) 74%, rgba(14,15,13,.6) 100%);"></div>
+    <div style="position: absolute; inset: 0; z-index: 1; background: linear-gradient(0deg, rgba(14,15,13,.92) 0%, rgba(14,15,13,0) 45%); left: 3px; top: -22px"></div>
+
+    <div style="position: relative; z-index: 2; width: 1278px; max-width: 1320px; margin: 0 auto; padding: 0 clamp(20px,5vw,72px); height: 530px">
+      <div data-reveal="0" style="display:inline-flex; align-items:center; gap:10px; font-size:12.5px; letter-spacing:.16em; text-transform:uppercase; color:rgba(242,239,231,.6); margin-bottom:26px;">
+        </div>
+      <h1 data-reveal="0.05" style="font-family:'Bricolage Grotesque'; font-weight:700; font-size:clamp(42px,7vw,110px); line-height:.98; letter-spacing:-.02em; margin:0 0 30px; max-width:17ch;">Building the <span style="color:#C8F24E;">missing middle</span> of African sport.</h1>
+      <div style="margin: 0; width: 624px; height: 30px"><p class="font-claude-response-body break-words whitespace-normal"><strong>The Talent50 Group&nbsp;</strong>unlocks the value of African sports, turning potential into assets.<strong><br></strong></p>
+<p class="font-claude-response-body break-words whitespace-normal"></p></div><p data-reveal="0.1" style="font-size: clamp(17px,1.4vw,21px); line-height: 1.55; color: rgba(242,239,231,.7); max-width: 58ch; margin: 0 0 40px; font-weight: 300; width: 804px; height: 61px"><br></p>
+      <div data-reveal="0.15" style="display:flex; flex-wrap:wrap; gap:18px; align-items:center;">
+        <a href="#contact" style="display:inline-flex; align-items:center; gap:10px; background:#F2EFE7; color:#0E0F0D; padding:16px 28px; font-weight:600; font-size:15.5px;">Partner with us</a>
+        <a href="#engine" style="display:inline-flex; align-items:center; gap:10px; color:#F2EFE7; padding:16px 4px; font-weight:500; font-size:15.5px; border-bottom:1px solid rgba(242,239,231,.4);">See how it works</a>
+      </div>
+    </div>
+    <div style="position:absolute; z-index:2; bottom:26px; left:50%; transform:translateX(-50%); display:flex; flex-direction:column; align-items:center; gap:8px; font-size:10.5px; letter-spacing:.22em; text-transform:uppercase; color:rgba(242,239,231,.45);">
+      Scroll <span style="font-size:16px; animation:t50cue 1.8s ease-in-out infinite;">↓</span>
+    </div>
+  </section>
+
+  <!-- ===================== WHAT WE ARE ===================== -->
+  <section id="about" style="background:#F2EFE7; color:#0E0F0D; padding:clamp(84px,13vh,170px) 0;">
+    <div style="max-width:1320px; margin:0 auto; padding:0 clamp(20px,5vw,72px);">
+      <div data-reveal="0" style="font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:#0E0F0D; opacity:.5; margin-bottom:36px; display:flex; align-items:center; gap:12px;"><span style="width: 24px; height: 1px; background: rgb(14, 15, 13); opacity: 0.4;"></span>WhO we are</div>
+      <div style="display:grid; grid-template-columns:1.45fr .8fr; gap:clamp(36px,5vw,72px); align-items:start;" data-stack="" data-cols="1.45fr .8fr">
+        <p data-reveal="0.05" style="font-family:'Bricolage Grotesque'; font-weight:500; font-size:clamp(26px,3.5vw,50px); line-height:1.16; letter-spacing:-.015em; margin:0; max-width:22ch;">We build the missing middle: the layer between world-class, grassroots talent and the global stage.
+          <span style="display: block; font-family: &quot;Hanken Grotesk&quot;; font-weight: 300; font-size: clamp(15px, 1.1vw, 17px); line-height: 1.6; color: rgb(70, 70, 63); margin-top: 24px; max-width: 48ch; width: 547px; height: 63px;">We are a bridge between passion and professionalism, turning raw talent into global success stories, across every sport we touch.</span>
+        </p>
+        <div data-reveal="0.12" style="border-top:1px solid #0E0F0D; padding-top:24px;">
+          <div style="font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#0E0F0D; opacity:.5; margin-bottom:16px;">The group — all live</div>
+          <div style="display:flex; flex-direction:column;">
+            <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:14px 0; border-bottom:1px solid rgba(14,15,13,.14);"><span style="font-family:'Bricolage Grotesque'; font-weight:600; font-size:clamp(16px,1.2vw,18.5px);">Teams</span><span style="font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; opacity:.55;">Live</span></div>
+            <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:14px 0; border-bottom:1px solid rgba(14,15,13,.14);"><span style="font-family:'Bricolage Grotesque'; font-weight:600; font-size:clamp(16px,1.2vw,18.5px);">Media</span><span style="font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; opacity:.55;">Live</span></div>
+            <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:14px 0; border-bottom:1px solid rgba(14,15,13,.14);"><span style="font-family:'Bricolage Grotesque'; font-weight:600; font-size:clamp(16px,1.2vw,18.5px);">Tech</span><span style="font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; opacity:.55;">Live</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PROBLEM / MISSING MIDDLE ===================== -->
+  
+
+  <!-- ===================== THE GROUP ===================== -->
+  <section id="problem" style="background:#0E0F0D; color:#F2EFE7; padding:clamp(84px,13vh,170px) 0; border-top:1px solid rgba(242,239,231,.08);">
+    <div style="max-width:1320px; margin:0 auto; padding:0 clamp(20px,5vw,72px);">
+      <div data-reveal="0" style="font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:rgba(242,239,231,.5); margin-bottom:30px; display:flex; align-items:center; gap:12px;"><span>01</span><span>— The opportunity</span></div>
+      <h2 data-reveal="0.05" style="font-family: 'Bricolage Grotesque'; font-weight: 700; font-size: clamp(32px,4.4vw,64px); line-height: 1.04; letter-spacing: -.02em; margin: 0 0 clamp(40px,6vh,72px); max-width: 18ch; width: 922px; height: 209px">Strong at the top. Strong at the bottom. Hollow in between.</h2>
+
+      <p style="font-size:clamp(16px,1.3vw,18.5px); line-height:1.65; color:rgba(242,239,231,.7); margin:0 0 32px; font-weight:300;">Africa produces world-class talent the world pays a fortune for, but only once it leaves. Grassroots receives less than 5% of national sports budgets, and the sector runs on almost no fan data. That gap is the opportunity.</p><div style="display:grid; grid-template-columns:1.05fr .95fr; gap:clamp(36px,5vw,80px); align-items:start;" data-stack="">
+        <div data-reveal="0.05" style="display:flex; flex-direction:column;">
+          <div style="padding:24px 0; border-top:1px solid rgba(242,239,231,.18); display:flex; align-items:baseline; justify-content:space-between; gap:16px;">
+            <div><div style="font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:rgba(242,239,231,.5); margin-bottom:8px;">The top</div><div style="font-family:'Bricolage Grotesque'; font-weight:600; font-size:clamp(20px,2vw,27px);">Marquee events &amp; exported stars</div></div>
+          </div>
+          <div style="padding:28px 0; border-top:1px solid rgba(242,239,231,.18);">
+            <div style="font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:#C8F24E; margin-bottom:8px;">The missing middle</div>
+            <div style="font-family:'Bricolage Grotesque'; font-weight:600; font-size:clamp(20px,2vw,27px);">Leagues, distribution, data, capital</div>
+            <div style="font-size:14.5px; color:rgba(242,239,231,.55); margin-top:10px; font-weight:300;">The connective layer that doesn't exist yet, and where we build.</div>
+          </div>
+          <div style="padding:24px 0; border-top:1px solid rgba(242,239,231,.18); border-bottom:1px solid rgba(242,239,231,.18); display:flex; align-items:baseline; justify-content:space-between; gap:16px;">
+            <div><div style="font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:rgba(242,239,231,.5); margin-bottom:8px;">The bottom</div><div style="font-family:'Bricolage Grotesque'; font-weight:600; font-size:clamp(20px,2vw,27px);">225M+ players, youngest population on earth</div></div>
+          </div>
+        </div>
+        <div data-reveal="0.1">
+          
+          <div style="display:flex; flex-direction:column; gap:0;">
+            <div style="padding:20px 0; border-top:1px solid rgba(242,239,231,.12);"><div style="font-family:'Bricolage Grotesque'; font-weight:600; font-size:18px; margin-bottom:5px;">Talent leaves early, cheap.</div><div style="font-size:14.5px; color:rgba(242,239,231,.55); line-height:1.5; font-weight:300;">The average outbound transfer fee is a fraction of what the same player commands at a top-tier league.</div></div>
+            <div style="padding:20px 0; border-top:1px solid rgba(242,239,231,.12);"><div style="font-family:'Bricolage Grotesque'; font-weight:600; font-size:18px; margin-bottom:5px;">Value is captured abroad.</div><div style="font-size:14.5px; color:rgba(242,239,231,.55); line-height:1.5; font-weight:300;">The platforms, the rights and the fan relationships are built somewhere else.</div></div>
+            <div style="padding: 20px 0; border-top: 1px solid rgba(242,239,231,.12); border-bottom: 1px solid rgba(242,239,231,.12); width: 523px; height: 101px"><div style="font-family:'Bricolage Grotesque'; font-weight:600; font-size:18px; margin-bottom:5px;">The home market is unbuilt.</div><div style="font-size:14.5px; color:rgba(242,239,231,.55); line-height:1.5; font-weight:300;">600M+ fans, almost entirely unmonetised, because no one has built the connective layer.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section><section id="group" style="background:#F2EFE7; color:#0E0F0D; padding:clamp(84px,13vh,170px) 0;">
+    <div style="max-width:1320px; margin:0 auto; padding:0 clamp(20px,5vw,72px);">
+      <div style="display:flex; justify-content:space-between; align-items:flex-end; gap:24px; flex-wrap:wrap; margin-bottom:clamp(44px,6vh,76px);">
+        <div>
+          <div data-reveal="0" style="font-size:12px; letter-spacing:.16em; text-transform:uppercase; opacity:.5; margin-bottom:28px; display:flex; align-items:center; gap:12px;"><span>02</span><span>— The group</span></div>
+          <h2 data-reveal="0.05" style="font-family:'Bricolage Grotesque'; font-weight:700; font-size:clamp(32px,4.4vw,64px); line-height:1.04; letter-spacing:-.02em; margin:0;">One group.<br>Three pillars.</h2>
+        </div>
+        <p data-reveal="0.1" style="font-size:clamp(16px,1.2vw,18px); line-height:1.55; max-width:38ch; color:#46463f; margin:0; font-weight:300;">The Talent 50 Group builds and operates sports assets such as teams, the media that carries them, and the technology that connects both to fans and markets.&nbsp;</p>
+      </div>
+
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(28px,3.5vw,56px);" data-grid3="">
+        <div data-reveal="0.05" style="border-top:1px solid #0E0F0D; padding-top:22px; display:flex; flex-direction:column;">
+          <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:12px; margin-bottom:20px;"><div style="font-family:'Bricolage Grotesque'; font-weight:700; font-size:clamp(34px,3.4vw,54px); line-height:.85; letter-spacing:-.02em;">01</div><span style="font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; opacity:.5; padding-top:6px;">Live</span></div>
+          <h3 style="font-family:'Bricolage Grotesque'; font-weight:600; font-size:21px; margin:0 0 4px;">Teams</h3>
+          <div style="font-size:11px; letter-spacing:.04em; color:#7a7a70; margin-bottom:14px; text-transform:uppercase;">Football, esports &amp; more</div>
+          <p style="font-size:14.5px; line-height:1.55; color:#46463f; margin:0 0 18px; flex:1; font-weight:300;">We build and own teams across sports, starting with Firecrackers FC and extending into esports and beyond.</p>
+          <a href="https://firecrackersfc.com" target="_blank" rel="noopener" style="font-size:12.5px; letter-spacing:.02em; color:#0E0F0D; display:inline-flex; align-items:center; gap:6px; border-bottom:1px solid rgba(14,15,13,.3); padding-bottom:2px; align-self:flex-start;">firecrackersfc.com</a>
+        </div>
+        <div data-reveal="0.1" style="border-top:1px solid #0E0F0D; padding-top:22px; display:flex; flex-direction:column;">
+          <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:12px; margin-bottom:20px;"><div style="font-family:'Bricolage Grotesque'; font-weight:700; font-size:clamp(34px,3.4vw,54px); line-height:.85; letter-spacing:-.02em;">02</div><span style="font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; opacity:.5; padding-top:6px;">Live</span></div>
+          <h3 style="font-family:'Bricolage Grotesque'; font-weight:600; font-size:21px; margin:0 0 4px;">Media</h3>
+          <div style="font-size:11px; letter-spacing:.04em; color:#7a7a70; margin-bottom:14px; text-transform:uppercase;">Content &amp; channels</div>
+          <p style="font-size:14.5px; line-height:1.55; color:#46463f; margin:0 0 18px; flex:1; font-weight:300;">Owned content and channels that turn our teams and talent into stories, audiences and reach.</p>
+          <a href="https://talent50.com" target="_blank" rel="noopener" style="font-size:12.5px; letter-spacing:.02em; color:#0E0F0D; display:inline-flex; align-items:center; gap:6px; border-bottom:1px solid rgba(14,15,13,.3); padding-bottom:2px; align-self:flex-start;">talent50.com</a>
+        </div>
+        <div data-reveal="0.15" style="border-top:1px solid #0E0F0D; padding-top:22px; display:flex; flex-direction:column;">
+          <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:12px; margin-bottom:20px;"><div style="font-family:'Bricolage Grotesque'; font-weight:700; font-size:clamp(34px,3.4vw,54px); line-height:.85; letter-spacing:-.02em;">03</div><span style="font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; opacity:.5; padding-top:6px;">Live</span></div>
+          <h3 style="font-family:'Bricolage Grotesque'; font-weight:600; font-size:21px; margin:0 0 4px;">Tech</h3>
+          <div style="font-size:11px; letter-spacing:.04em; color:#7a7a70; margin-bottom:14px; text-transform:uppercase;">Sports tech &amp; data</div>
+          <p style="font-size:14.5px; line-height:1.55; color:#46463f; margin:0; flex:1; font-weight:300;">The tools and data layer connecting our teams, athletes and fans across every sport we operate in.</p>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- ===================== MARKET NUMBERS ===================== -->
+  <section id="market" style="background:#F2EFE7; color:#0E0F0D; padding:clamp(84px,13vh,170px) 0; border-top:1px solid rgba(14,15,13,.1);">
+    <div style="max-width:1320px; margin:0 auto; padding:0 clamp(20px,5vw,72px);">
+      <div data-reveal="0" style="font-size:12px; letter-spacing:.16em; text-transform:uppercase; opacity:.5; margin-bottom:28px; display:flex; align-items:center; gap:12px;"><span>03</span><span>— The market</span></div>
+      <h2 data-reveal="0.05" style="font-family:'Bricolage Grotesque'; font-weight:700; font-size:clamp(30px,4vw,58px); line-height:1.06; letter-spacing:-.02em; margin:0 0 20px; max-width:20ch;">A continent-sized audience, almost entirely unmonetised.</h2>
+      <p data-reveal="0.07" style="font-family:'Bricolage Grotesque'; font-weight:500; font-size:clamp(17px,1.5vw,21px); color:#46463f; margin:0 0 clamp(48px,7vh,84px); max-width:32ch;">Africa is the last major untapped sports market.</p>
+
+      <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:clamp(20px,3vw,48px);" data-grid4="">
+        <div data-reveal="0.05" style="border-top:1px solid #0E0F0D; padding-top:18px;"><div style="font-family:'Bricolage Grotesque'; font-weight:700; font-size:clamp(44px,5vw,80px); line-height:.9; letter-spacing:-.02em;" data-count-to="12" data-prefix="$" data-suffix="B">$0B</div><div style="font-size:14px; line-height:1.45; margin-top:14px; color:#46463f; font-weight:300;">African sports market today, projected to surpass $20B by 2035.</div></div>
+        <div data-reveal="0.1" style="border-top:1px solid #0E0F0D; padding-top:18px;"><div style="font-family:'Bricolage Grotesque'; font-weight:700; font-size:clamp(44px,5vw,80px); line-height:.9; letter-spacing:-.02em;" data-count-to="600" data-suffix="M+">0M+</div><div style="font-size:14px; line-height:1.45; margin-top:14px; color:#46463f; font-weight:300;">Sports fans across the continent.</div></div>
+        <div data-reveal="0.15" style="border-top:1px solid #0E0F0D; padding-top:18px;"><div style="font-family:'Bricolage Grotesque'; font-weight:700; font-size:clamp(44px,5vw,80px); line-height:.9; letter-spacing:-.02em;" data-count-to="225" data-suffix="M">0M</div><div style="font-size:14px; line-height:1.45; margin-top:14px; color:#46463f; font-weight:300;">Amateur footballers in Africa.</div></div>
+        <div data-reveal="0.2" style="border-top:1px solid #0E0F0D; padding-top:18px;"><div style="font-family:'Bricolage Grotesque'; font-weight:700; font-size:clamp(44px,5vw,80px); line-height:.9; letter-spacing:-.02em;" data-count-to="2" data-prefix="&lt;" data-suffix="%">&lt;0%</div><div style="font-size:14px; line-height:1.45; margin-top:14px; color:#46463f; font-weight:300;">Of athlete IP currently monetised.</div></div>
+      </div>
+
+      <div data-reveal="0.1" style="display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:rgba(14,15,13,.14); margin:clamp(44px,6vh,72px) 0 0; border-top:1px solid rgba(14,15,13,.16);" data-grid3="">
+        <div style="background:#F2EFE7; padding:24px clamp(0px,2vw,24px) 24px 0;"><div style="font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#8a8a80; margin-bottom:10px;">Sponsorship</div><p style="font-size:14.5px; line-height:1.6; color:#46463f; margin:0; font-weight:300;">Title-sponsored leagues jumped from under 15% in 2010 to over 70% in 2025.</p></div>
+        <div style="background:#F2EFE7; padding:24px clamp(0px,2vw,24px);"><div style="font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#8a8a80; margin-bottom:10px;">Mobile rails</div><p style="font-size:14.5px; line-height:1.6; color:#46463f; margin:0; font-weight:300;">African sports betting reached ~$3B in 2025, and 350M+ gamers play mostly on mobile.</p></div>
+        <div style="background:#F2EFE7; padding:24px 0 24px clamp(0px,2vw,24px);"><div style="font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#8a8a80; margin-bottom:10px;">Streaming &amp; data</div><p style="font-size:14.5px; line-height:1.6; color:#46463f; margin:0; font-weight:300;">MEA sports streaming is set to grow from $1.3B to $2.4B by 2030, on 320M mobile-internet subscribers, still with almost no data infrastructure.</p></div>
+      </div>
+      <p style="font-size:11px; letter-spacing:.02em; color:#8a8a80; margin:18px 0 0;">¹ Oliver Wyman · ² ASCI · ³ PwC Africa Sports Outlook 2025 · ⁴ Grand View Research, Stears, SCCG, GSMA.</p>
+    </div>
+  </section>
+
+  <!-- ===================== ADVANTAGE ===================== -->
+  <section id="engine" style="background:#0E0F0D; color:#F2EFE7; padding:clamp(84px,13vh,170px) 0;">
+    <div style="max-width:1320px; margin:0 auto; padding:0 clamp(20px,5vw,72px);">
+      <div data-reveal="0" style="font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:rgba(242,239,231,.5); margin-bottom:30px; display:flex; align-items:center; gap:12px;"><span>04</span><span>— The advantage</span></div>
+      <h2 data-reveal="0.05" style="font-family:'Bricolage Grotesque'; font-weight:700; font-size:clamp(30px,4vw,58px); line-height:1.06; letter-spacing:-.02em; margin:0 0 clamp(44px,6vh,72px); max-width:20ch;">Everything we do compounds into one advantage.</h2>
+
+      <div data-reveal="0.05" style="display:flex; flex-wrap:wrap; align-items:baseline; gap:14px 20px; margin-bottom:clamp(48px,6vh,76px); border-top:1px solid rgba(242,239,231,.16); border-bottom:1px solid rgba(242,239,231,.16); padding:clamp(28px,4vh,44px) 0;">
+        <span style="font-family:'Bricolage Grotesque'; font-weight:600; font-size:clamp(20px,2.3vw,32px);">Teams</span>
+        <span style="font-family:'Bricolage Grotesque'; font-weight:400; font-size:clamp(18px,2vw,26px); color:rgba(242,239,231,.4);">+</span>
+        <span style="font-family:'Bricolage Grotesque'; font-weight:600; font-size:clamp(20px,2.3vw,32px);">Media</span>
+        <span style="font-family:'Bricolage Grotesque'; font-weight:400; font-size:clamp(18px,2vw,26px); color:rgba(242,239,231,.4);">+</span>
+        <span style="font-family:'Bricolage Grotesque'; font-weight:600; font-size:clamp(20px,2.3vw,32px);">Tech</span>
+        <span style="font-family:'Bricolage Grotesque'; font-weight:400; font-size:clamp(18px,2vw,26px); color:rgba(242,239,231,.4);">=</span>
+        <span style="font-family:'Bricolage Grotesque'; font-weight:700; font-size:clamp(20px,2.3vw,32px); color:#C8F24E;">The Talent 50 advantage</span>
+      </div>
+
+      <blockquote data-reveal="0.05" style="margin:0; font-family:'Bricolage Grotesque'; font-weight:500; font-size:clamp(24px,3vw,44px); line-height:1.2; letter-spacing:-.015em; max-width:26ch;">We own the teams, the channels that reach the fans, and the tech that connects them, so <span style="color:#C8F24E;">each part makes the others stronger.</span></blockquote>
+    </div>
+  </section>
+
+  <!-- ===================== IMPACT ===================== -->
+  <section id="impact" style="background:#F2EFE7; color:#0E0F0D; padding:clamp(84px,13vh,170px) 0;">
+    <div style="max-width:1320px; margin:0 auto; padding:0 clamp(20px,5vw,72px);">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:clamp(40px,6vw,90px); align-items:start;" data-stack="">
+        <div>
+          <div data-reveal="0" style="font-size:12px; letter-spacing:.16em; text-transform:uppercase; opacity:.5; margin-bottom:28px; display:flex; align-items:center; gap:12px;"><span>05</span><span>— Impact</span></div>
+          <h2 data-reveal="0.05" style="font-family:'Bricolage Grotesque'; font-weight:700; font-size:clamp(32px,4vw,58px); line-height:1.06; letter-spacing:-.02em; margin:0 0 24px;">A talent platform is a jobs engine.</h2>
+          <p data-reveal="0.1" style="font-size:clamp(16px,1.25vw,18px); line-height:1.6; color:#46463f; margin:0; font-weight:300;">Every category we build employs far more people off the pitch than on it: scouts, coaches, creators, editors, league and event operators, physios, agents and administrators, and keeps that value in the communities that create it.</p>
+        </div>
+        <div data-reveal="0.05" style="display:flex; flex-direction:column;">
+          <div style="font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:#0E0F0D; opacity:.5; margin-bottom:16px;">Targets — next 3 years</div>
+          <div style="display:flex; align-items:baseline; justify-content:space-between; gap:16px; padding:22px 0; border-bottom:1px solid rgba(14,15,13,.14); border-top:1px solid rgba(14,15,13,.14);"><div style="font-family:'Bricolage Grotesque'; font-weight:700; font-size:clamp(38px,4.2vw,66px); line-height:.9; letter-spacing:-.02em;" data-count-to="500" data-suffix="+">0+</div><div style="font-size:14.5px; text-align:right; color:#46463f; max-width:18ch; font-weight:300;">Youth athletes on structured pathways</div></div>
+          <div style="display:flex; align-items:baseline; justify-content:space-between; gap:16px; padding:22px 0; border-bottom:1px solid rgba(14,15,13,.14);"><div style="font-family:'Bricolage Grotesque'; font-weight:700; font-size:clamp(38px,4.2vw,66px); line-height:.9; letter-spacing:-.02em;" data-count-to="5">0</div><div style="font-size:14.5px; text-align:right; color:#46463f; max-width:18ch; font-weight:300;">Academy &amp; league hubs</div></div>
+          <div style="display:flex; align-items:baseline; justify-content:space-between; gap:16px; padding:22px 0; border-bottom:1px solid rgba(14,15,13,.14);"><div style="font-family:'Bricolage Grotesque'; font-weight:700; font-size:clamp(38px,4.2vw,66px); line-height:.9; letter-spacing:-.02em;" data-count-to="1000" data-suffix="+">0+</div><div style="font-size:14.5px; text-align:right; color:#46463f; max-width:18ch; font-weight:300;">Direct &amp; indirect jobs created</div></div>
+          <div style="font-size:12.5px; color:#46463f; margin-top:20px; font-weight:300;">SDG 8 · SDG 10 · SDG 11 · SDG 4 · IRIS+ aligned KPIs</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== TRACTION ===================== -->
+  <section id="traction" style="background:#F2EFE7; color:#0E0F0D; padding:clamp(84px,13vh,170px) 0;">
+    <div style="max-width:1320px; margin:0 auto; padding:0 clamp(20px,5vw,72px);">
+      <div data-reveal="0" style="font-size:12px; letter-spacing:.16em; text-transform:uppercase; opacity:.5; margin-bottom:28px; display:flex; align-items:center; gap:12px;"><span>06</span><span>— Where we are</span></div>
+      <h2 data-reveal="0.05" style="font-family:'Bricolage Grotesque'; font-weight:700; font-size:clamp(30px,4vw,58px); line-height:1.06; letter-spacing:-.02em; margin:0 0 clamp(44px,6vh,72px); max-width:22ch;">Built on the ground. Not on paper.</h2>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:clamp(28px,3.5vw,56px);" data-stack="">
+        <div data-reveal="0.05" style="display:flex; flex-direction:column;">
+          <div style="position:relative; aspect-ratio:16/10; overflow:hidden;">
+            <img src="assets/firecrackers.png" alt="Firecrackers FC squad in Talent 50 kit" style="width:100%; height:100%; object-fit:cover; object-position:50% 35%; display:block; filter:grayscale(0.1);">
+            <span style="position:absolute; top:16px; left:16px; font-size:11px; letter-spacing:.06em; text-transform:uppercase; background:#0E0F0D; color:#F2EFE7; padding:6px 12px;">Operational</span>
+          </div>
+          <div style="padding:clamp(22px,2.2vw,32px) 0 0;"><h3 style="font-family:'Bricolage Grotesque'; font-weight:600; font-size:23px; margin:0 0 12px;">Firecrackers FC</h3><p style="font-size:15px; line-height:1.6; color:#46463f; margin:0; font-weight:300;">A grassroots club in Nigeria, founded and operational since 2024, with an active youth scouting and development pipeline. It's our live proof-of-concept and first source of talent.</p></div>
+        </div>
+        <div data-reveal="0.1" style="display:flex; flex-direction:column;">
+          <div style="position:relative; aspect-ratio:16/10; overflow:hidden;">
+            <img src="assets/boardgame.png" alt="A packed arena watching a giant draughts board game final" style="width:100%; height:100%; object-fit:cover; display:block; filter:grayscale(0.1);">
+            <span style="position:absolute; top:16px; left:16px; font-size:11px; letter-spacing:.06em; text-transform:uppercase; background:rgba(14,15,13,.7); backdrop-filter:blur(4px); color:#F2EFE7; padding:6px 12px;">New format</span>
+          </div>
+          <div style="padding:clamp(22px,2.2vw,32px) 0 0;"><h3 style="font-family:'Bricolage Grotesque'; font-weight:600; font-size:23px; margin:0 0 12px;">Digital Board Game League</h3><p style="font-size:15px; line-height:1.6; color:#46463f; margin:0; font-weight:300;">A fresh take on a classic board game, reimagined for digital, competitive play across Africa. We're keeping the specifics under wraps for now.</p></div>
+        </div>
+      </div>
+      <div data-reveal="0.12" style="margin-top:22px; font-size:12.5px; letter-spacing:.02em; color:#46463f; display:flex; align-items:center; gap:10px; font-weight:300;"><span style="width:18px; height:1px; background:rgba(14,15,13,.4); display:inline-block;"></span>&amp; others in build. More to share soon.</div>
+      
+    </div>
+  </section>
+
+  <!-- ===================== CLOSING CTA ===================== -->
+  
+
+  <!-- ===================== FOOTER ===================== -->
+  <section id="contact" style="position:relative; background:#0E0F0D; color:#F2EFE7; padding:clamp(96px,16vh,200px) 0; overflow:hidden; border-top:1px solid rgba(242,239,231,.08);">
+    <div style="position:relative; z-index:1; max-width:1320px; margin:0 auto; padding:0 clamp(20px,5vw,72px);">
+      <h2 data-reveal="0" style="font-family: 'Bricolage Grotesque'; font-weight: 700; font-size: clamp(32px,5vw,80px); line-height: 1.02; letter-spacing: -.02em; margin: 0 0 40px; max-width: 16ch; width: 884px; height: 158px">Built here. Owned here.</h2>
+      <p data-reveal="0.03" style="font-size:clamp(15.5px,1.15vw,18px); line-height:1.6; color:rgba(242,239,231,.55); max-width:52ch; margin:-14px 0 40px; font-weight:300;">A movement that empowers communities, inspires youth, and showcases Africa's potential on the global stage.</p>
+      <div data-reveal="0.05" style="display:flex; flex-wrap:wrap; gap:16px; align-items:center; margin-bottom:clamp(56px,8vh,90px);">
+        <a href="mailto:hello@thetalent50company.com" style="display:inline-flex; align-items:center; gap:10px; background:#F2EFE7; color:#0E0F0D; padding:18px 32px; font-weight:600; font-size:16.5px;">Let's talk</a>
+        <a href="mailto:hello@thetalent50company.com" style="font-size:14px; color:rgba(242,239,231,.65); border-bottom:1px solid rgba(242,239,231,.3); padding-bottom:2px;">hello@thetalent50company.com</a>
+      </div>
+    </div>
+  </section><footer style="background:#0E0F0D; color:#F2EFE7; border-top:1px solid rgba(242,239,231,.12); padding:clamp(48px,7vh,80px) 0 clamp(36px,5vh,56px);">
+    <div style="max-width:1320px; margin:0 auto; padding:0 clamp(20px,5vw,72px);">
+      <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:40px; flex-wrap:wrap; margin-bottom:48px;">
+        <div style="max-width:34ch;">
+          <img src="assets/logo-white.png" alt="Talent 50" style="height:38px; width:auto; display:block; margin-bottom:20px;">
+          <p style="font-size:14.5px; line-height:1.55; color:rgba(242,239,231,.5); margin:0 0 16px; font-weight:300;">The Talent 50 Group. Building the missing middle of African sport through talent, media, distribution and capital.</p>
+          <div style="font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:rgba(242,239,231,.35);">Teams · Media · Tech</div>
+        </div>
+        <div style="display:flex; gap:clamp(40px,6vw,90px); flex-wrap:wrap;">
+          <div style="display:flex; flex-direction:column; gap:12px;">
+            <div style="font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:rgba(242,239,231,.4); margin-bottom:4px;">Explore</div>
+            <a href="#about" style="font-size:14.5px; color:rgba(242,239,231,.65);">What we do</a>
+            <a href="#group" style="font-size:14.5px; color:rgba(242,239,231,.65);">The group</a>
+            <a href="#market" style="font-size:14.5px; color:rgba(242,239,231,.65);">Market</a>
+            <a href="#impact" style="font-size:14.5px; color:rgba(242,239,231,.65);">Impact</a>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:12px;">
+            <div style="font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:rgba(242,239,231,.4); margin-bottom:4px;">Contact</div>
+            <a href="mailto:hello@thetalent50company.com" style="font-size:14.5px; color:rgba(242,239,231,.65);">hello@thetalent50company.com</a>
+            <a href="https://thetalent50company.com" style="font-size:14.5px; color:rgba(242,239,231,.65);">thetalent50company.com</a>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex; justify-content:space-between; align-items:center; gap:20px; flex-wrap:wrap; padding-top:28px; border-top:1px solid rgba(242,239,231,.1); font-size:11.5px; letter-spacing:.03em; color:rgba(242,239,231,.4);">
+        <span>© 2026 The Talent 50 Group — a sports ecosystem development company.</span>
+        <span>Stephanie Etiaka · Founder</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<template id="__bundler_thumbnail" data-bg-color="#0E0F0D">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#0E0F0D"></rect>
+    <circle cx="600" cy="400" r="210" fill="none" stroke="#F2EFE7" stroke-width="10" stroke-dasharray="1150 170" transform="rotate(-90 600 400)"></circle>
+    <text x="600" y="400" fill="#F2EFE7" font-family="Arial, sans-serif" font-size="150" font-weight="800" text-anchor="middle" dominant-baseline="central" letter-spacing="-4">Talent <tspan fill="#C8F24E">50</tspan></text>
+  </svg>
+</template>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { scrolled: false, menuOpen: false };
+
+  componentDidMount() {
+    this._raf = null;
+    this.onScroll = () => {
+      if (this._raf) return;
+      this._raf = requestAnimationFrame(() => { this._raf = null; this.handleScroll(); });
+    };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    window.addEventListener('resize', this.onScroll, { passive: true });
+
+    this.revealObs = new IntersectionObserver((entries) => {
+      entries.forEach((e) => { if (e.isIntersecting) this.reveal(e.target); });
+    }, { threshold: 0.12, rootMargin: '0px 0px -7% 0px' });
+
+    this.countObs = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) { this.animateCount(e.target); this.countObs.unobserve(e.target); }
+      });
+    }, { threshold: 0.4 });
+
+    requestAnimationFrame(() => {
+      document.querySelectorAll('[data-reveal]').forEach((el) => {
+        const d = parseFloat(el.getAttribute('data-reveal')) || 0;
+        el.style.willChange = 'opacity, transform';
+        el.style.transition = 'opacity .85s cubic-bezier(.2,.7,.2,1), transform .95s cubic-bezier(.2,.7,.2,1)';
+        el.style.transitionDelay = d + 's';
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.setAttribute('data-reveal-pending', '1');
+        this.revealObs.observe(el);
+      });
+      document.querySelectorAll('[data-count-to]').forEach((el) => this.countObs.observe(el));
+      this.applyResponsive();
+      this.checkReveals();
+      this.handleScroll();
+    });
+
+    this._safety = setTimeout(() => {
+      document.querySelectorAll('[data-reveal-pending]').forEach((el) => this.reveal(el));
+    }, 1300);
+
+    window.addEventListener('resize', this._respHandler = () => this.applyResponsive(), { passive: true });
+  }
+
+  reveal(el) {
+    if (!el) return;
+    el.style.opacity = '1';
+    el.style.transform = 'none';
+    el.removeAttribute('data-reveal-pending');
+    this.revealObs && this.revealObs.unobserve(el);
+  }
+
+  checkReveals() {
+    const vh = window.innerHeight || 0;
+    document.querySelectorAll('[data-reveal-pending]').forEach((el) => {
+      const r = el.getBoundingClientRect();
+      if (r.top < vh * 0.95 && r.bottom > 0) this.reveal(el);
+    });
+  }
+
+  componentWillUnmount() {
+    clearTimeout(this._safety);
+    window.removeEventListener('scroll', this.onScroll);
+    window.removeEventListener('resize', this.onScroll);
+    window.removeEventListener('resize', this._respHandler);
+    this.revealObs && this.revealObs.disconnect();
+    this.countObs && this.countObs.disconnect();
+    document.body.style.overflow = '';
+  }
+
+  applyResponsive() {
+    const w = window.innerWidth;
+    const mobile = w < 860;
+    document.querySelectorAll('[data-navlinks]').forEach((el) => { el.style.display = mobile ? 'none' : 'flex'; });
+    document.querySelectorAll('[data-menubtn]').forEach((el) => { el.style.display = mobile ? 'flex' : 'none'; });
+    document.querySelectorAll('[data-grid3]').forEach((el) => { el.style.gridTemplateColumns = mobile ? '1fr' : 'repeat(3,1fr)'; });
+    document.querySelectorAll('[data-grid4]').forEach((el) => { el.style.gridTemplateColumns = mobile ? '1fr 1fr' : 'repeat(4,1fr)'; });
+    document.querySelectorAll('[data-stack]').forEach((el) => { el.style.gridTemplateColumns = mobile ? '1fr' : el.getAttribute('data-cols') || '1fr 1fr'; });
+  }
+
+  handleScroll() {
+    const y = window.scrollY || window.pageYOffset || 0;
+    if ((y > 40) !== this.state.scrolled) this.setState({ scrolled: y > 40 });
+    this.checkReveals();
+    const vh = window.innerHeight;
+    document.querySelectorAll('[data-parallax]').forEach((el) => {
+      const sp = parseFloat(el.getAttribute('data-parallax')) || 0;
+      const r = el.getBoundingClientRect();
+      const center = r.top + r.height / 2 - vh / 2;
+      el.style.transform = 'translate3d(0,' + (center * sp).toFixed(1) + 'px,0)';
+    });
+  }
+
+  animateCount(el) {
+    const to = parseFloat(el.getAttribute('data-count-to'));
+    const dec = parseInt(el.getAttribute('data-decimals') || '0', 10);
+    const pre = el.getAttribute('data-prefix') || '';
+    const suf = el.getAttribute('data-suffix') || '';
+    const dur = 1500;
+    const start = performance.now();
+    const ease = (t) => 1 - Math.pow(1 - t, 3);
+    const fmt = (v) => pre + (dec ? v.toFixed(dec) : Math.round(v).toLocaleString('en-US')) + suf;
+    const tick = (now) => {
+      const p = Math.min(1, (now - start) / dur);
+      el.textContent = fmt(to * ease(p));
+      if (p < 1) requestAnimationFrame(tick);
+      else el.textContent = fmt(to);
+    };
+    requestAnimationFrame(tick);
+  }
+
+  toggleMenu() {
+    this.setState((s) => {
+      const open = !s.menuOpen;
+      document.body.style.overflow = open ? 'hidden' : '';
+      return { menuOpen: open };
+    });
+  }
+
+  closeMenu() {
+    document.body.style.overflow = '';
+    this.setState({ menuOpen: false });
+  }
+
+  renderVals() {
+    const s = this.state.scrolled;
+    return {
+      navBg: s ? 'rgba(14,15,13,0.9)' : 'rgba(14,15,13,0)',
+      navBorder: s ? '1px solid rgba(242,239,231,0.12)' : '1px solid rgba(242,239,231,0)',
+      navPad: s ? '13px 0' : '22px 0',
+      menuDisplay: this.state.menuOpen ? 'flex' : 'none',
+      toggleMenu: () => this.toggleMenu(),
+      closeMenu: () => this.closeMenu(),
+      navHover: (e) => { e.currentTarget.style.opacity = '1'; },
+      navOut: (e) => { e.currentTarget.style.opacity = '0.72'; },
+    };
+  }
+}
+</script>
+</body>
+</html>
