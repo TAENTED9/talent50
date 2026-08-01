@@ -15,10 +15,17 @@ const config: Config = {
       },
       maxWidth: { content: '1320px' },
       fontFamily: {
-        sans: ['var(--font-body)', 'system-ui', 'sans-serif'],
         display: ['var(--font-display)', 'system-ui', 'sans-serif'],
+        sans: ['var(--font-body)', 'system-ui', 'sans-serif'],
+        mono: ['var(--font-mono)', 'ui-monospace', 'monospace'],
       },
-      boxShadow: { header: '0 1px 0 rgba(242, 239, 231, 0.08)' },
+      borderRadius: { '4xl': '2rem' },
+      boxShadow: {
+        header: '0 1px 0 rgba(242, 239, 231, 0.08)',
+        soft: '0 10px 40px -12px rgba(0,0,0,0.35)',
+        'soft-lg': '0 24px 60px -16px rgba(0,0,0,0.45)',
+        glow: '0 0 0 1px rgba(200,242,78,0.08), 0 18px 50px -18px rgba(200,242,78,0.25)',
+      },
       backgroundImage: {
         'hero-overlay': 'linear-gradient(90deg, rgba(14, 15, 13, .95) 0%, rgba(14, 15, 13, .84) 40%, rgba(14, 15, 13, .42) 74%, rgba(14, 15, 13, .6) 100%)',
       },

@@ -1,9 +1,10 @@
 import type { Metadata, Viewport } from 'next';
-import { Bricolage_Grotesque, Hanken_Grotesk } from 'next/font/google';
+import { Anton, Inter, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 
-const bodyFont = Hanken_Grotesk({ variable: '--font-body', display: 'swap', subsets: ['latin'] });
-const displayFont = Bricolage_Grotesque({ variable: '--font-display', display: 'swap', subsets: ['latin'] });
+const displayFont = Anton({ subsets: ['latin'], weight: '400', variable: '--font-display', display: 'swap' });
+const bodyFont = Inter({ subsets: ['latin'], variable: '--font-body', display: 'swap' });
+const monoFont = JetBrains_Mono({ subsets: ['latin'], variable: '--font-mono', display: 'swap' });
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://talent50.com'),
@@ -28,7 +29,7 @@ export const viewport: Viewport = { width: 'device-width', initialScale: 1, them
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${bodyFont.variable} ${displayFont.variable}`}>
+    <html lang="en" className={`${displayFont.variable} ${bodyFont.variable} ${monoFont.variable}`}>
       <body className="font-sans">{children}</body>
     </html>
   );
