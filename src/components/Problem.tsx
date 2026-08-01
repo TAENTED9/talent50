@@ -1,0 +1,3 @@
+import { SectionHeading } from './ui/SectionHeading';
+
+export default function Problem() { return <section id="problem" className="bg-ink py-[clamp(84px,13vh,170px)]"><div className="mx-auto max-w-content px-5 md:px-[5vw] lg:px-[72px]"><SectionHeading eyebrow="01 — The opportunity" title="Strong at the top. Strong at the bottom. Hollow in between." body="Africa produces world-class talent the world pays a fortune for, but only once it leaves. Grassroots receives less than 5% of national sports budgets, and the sector runs on almost no fan data. That gap is the opportunity." titleClassName="max-w-[18ch]" /></div></section>; }
