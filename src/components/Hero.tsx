@@ -4,7 +4,7 @@ import Image from 'next/image';
 export default function Hero() {
   return (
     <section id="home" className="relative flex min-h-screen items-end overflow-hidden bg-ink pb-[clamp(48px,7vh,96px)]">
-      <div className="absolute -top-[12%] left-0 right-0 bottom-0 relative">
+      <div className="absolute -top-[12%] left-0 right-0 bottom-0">
         <Image src="/assets/hero.jpg" alt="Talent50 Group — African sport" fill priority sizes="100vw" className="object-cover grayscale-[.25] rounded-4xl shadow-soft-lg" />
       </div>
       <div className="absolute inset-0 bg-hero-overlay" />
