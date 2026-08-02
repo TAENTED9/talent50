@@ -1,5 +1,70 @@
 import { SectionHeading } from './ui/SectionHeading';
+import Image from 'next/image';
 
-const pillars = [{ number: '01', title: 'Teams', kicker: 'Football, esports & more', copy: 'We build and own teams across sports, starting with Firecrackers FC and extending into esports and beyond.', href: 'https://firecrackersfc.com', link: 'firecrackersfc.com' }, { number: '02', title: 'Media', kicker: 'Content & channels', copy: 'Owned content and channels that turn our teams and talent into stories, audiences and reach.', href: 'https://talent50.com', link: 'talent50.com' }, { number: '03', title: 'Tech', kicker: 'Sports tech & data', copy: 'The tools and data layer connecting our teams, athletes and fans across every sport we operate in.', href: '#contact', link: 'Contact' }];
+const pillars = [
+	{
+		number: '01',
+		title: 'Teams',
+		kicker: 'Football, esports & more',
+		copy: 'We build and own teams across sports, starting with Firecrackers FC and extending into esports and beyond.',
+		href: 'https://firecrackersfc.com',
+		link: 'firecrackersfc.com',
+		image: '/assets/esports.png',
+	},
+	{
+		number: '02',
+		title: 'Media',
+		kicker: 'Content & channels',
+		copy: 'Owned content and channels that turn our teams and talent into stories, audiences and reach.',
+		href: 'https://talent50.com',
+		link: 'talent50.com',
+		image: '/assets/pillar-media.jpg',
+	},
+	{
+		number: '03',
+		title: 'Tech',
+		kicker: 'Sports tech & data',
+		copy: 'The tools and data layer connecting our teams, athletes and fans across every sport we operate in.',
+		href: '#contact',
+		link: 'Contact',
+		image: '/assets/pillar-tech.jpg',
+	},
+];
 
-export default function Group() { return <section id="group" className="bg-paper py-[clamp(84px,13vh,170px)] text-ink"><div className="mx-auto max-w-content px-5 md:px-[5vw] lg:px-[72px]"><div className="mb-[clamp(44px,6vh,76px)] flex flex-wrap items-end justify-between gap-6"><SectionHeading eyebrow="02 — The group" title="One group. Three pillars." theme="light" titleClassName="mb-0" /><p className="max-w-[32ch] text-[clamp(16px,1.2vw,18px)] font-light leading-[1.55] text-muted-dark">The Talent50 Group builds and operates sports assets such as teams, the media that carries them, and the technology that connects both to fans and markets.</p></div><div className="grid gap-[clamp(28px,3.5vw,56px)] md:grid-cols-3">{pillars.map((pillar) => <article key={pillar.number} className="rounded-2xl bg-ink/5 p-7 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:ring-1 hover:ring-accent/40 hover:shadow-soft-lg"><div className="mb-5 flex justify-between"><strong className="font-display text-[clamp(34px,3.4vw,54px)] leading-[.85]">{pillar.number}</strong><span className="pt-1.5 font-mono text-[11px] uppercase tracking-[0.14em] text-ink/50">Live</span></div><h3 className="mb-1 font-display text-[21px]">{pillar.title}</h3><div className="mb-4 font-mono text-[11px] uppercase tracking-[0.14em] text-ink/50">{pillar.kicker}</div><p className="mb-5 text-[14.5px] font-light leading-[1.55] text-muted-dark">{pillar.copy}</p><a href={pillar.href} target={pillar.href.startsWith('http') ? '_blank' : undefined} rel={pillar.href.startsWith('http') ? 'noopener noreferrer' : undefined} className="border-b border-ink/30 pb-0.5 text-sm transition-colors duration-300 hover:border-accent focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-accent focus-visible:outline-offset-2">{pillar.link}</a></article>)}</div></div></section>; }
+export default function Group() {
+	return (
+		<section id="group" className="bg-paper py-[clamp(84px,13vh,170px)] text-ink">
+			<div className="mx-auto max-w-content px-5 md:px-[5vw] lg:px-[72px]">
+				<div className="mb-[clamp(44px,6vh,76px)] flex flex-wrap items-end justify-between gap-6">
+					<SectionHeading eyebrow="02 — The group" title="One group. Three pillars." theme="light" titleClassName="mb-0" />
+					<p className="max-w-[32ch] text-[clamp(16px,1.2vw,18px)] font-light leading-[1.55] text-muted-dark">The Talent50 Group builds and operates sports assets such as teams, the media that carries them, and the technology that connects both to fans and markets.</p>
+				</div>
+
+				<div className="grid gap-[clamp(28px,3.5vw,56px)] md:grid-cols-3">
+					{pillars.map((pillar) => (
+						<article key={pillar.number} className="rounded-2xl bg-ink/5 p-7 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:ring-1 hover:ring-accent/40 hover:shadow-soft-lg">
+							<div className="relative mb-5 aspect-[4/3] overflow-hidden rounded-2xl shadow-soft">
+								<Image src={pillar.image} alt={pillar.title} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover transition-transform duration-500 hover:scale-105" />
+							</div>
+							<div className="mb-5 flex justify-between">
+								<strong className="font-display text-[clamp(34px,3.4vw,54px)] leading-[.85]">{pillar.number}</strong>
+								<span className="pt-1.5 font-mono text-[11px] uppercase tracking-[0.14em] text-ink/50">Live</span>
+							</div>
+							<h3 className="mb-1 font-display text-[21px]">{pillar.title}</h3>
+							<div className="mb-4 font-mono text-[11px] uppercase tracking-[0.14em] text-ink/50">{pillar.kicker}</div>
+							<p className="mb-5 text-[14.5px] font-light leading-[1.55] text-muted-dark">{pillar.copy}</p>
+							<a
+								href={pillar.href}
+								target={pillar.href.startsWith('http') ? '_blank' : undefined}
+								rel={pillar.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+								className="border-b border-ink/30 pb-0.5 text-sm transition-colors duration-300 hover:border-accent focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-accent focus-visible:outline-offset-2"
+							>
+								{pillar.link}
+							</a>
+						</article>
+					))}
+				</div>
+			</div>
+		</section>
+	);
+}
