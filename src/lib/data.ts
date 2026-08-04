@@ -10,7 +10,7 @@ export const groupLinks: GroupLink[] = [
 export const marketStats: StatItem[] = [
   { value: '$12B', text: 'African sports market today, projected to surpass $20B by 2035.' },
   { value: '600M+', text: 'Sports fans across the continent.' },
-  { value: '88%', text: 'Mobile phone adoptation by 2030, creating a fully matured, digital-native sports community.' },
+  { value: 'Up to 88%', text: 'Mobile phone adoption by 2030, creating a fully matured, digital-native sports community.' },
   { value: '<2%', text: 'Of athlete IP currently monetised.' },
 ];
 
