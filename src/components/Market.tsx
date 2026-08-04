@@ -7,7 +7,7 @@ export default function Market() {
 	return (
 		<section id="market" className="bg-paper py-[clamp(84px,13vh,170px)] text-ink">
 			<div className="mx-auto max-w-content px-5 md:px-[5vw] lg:px-[72px]">
-				<SectionHeading eyebrow="03 — The market" title="A continent-sized audience, almost entirely unmonetised." body="Africa is the last major untapped sports market." theme="light" />
+				<SectionHeading eyebrow="03 — The market" title="A continent-sized audience almost entirely unmonetised across the stack." body="Africa is the last major untapped sports market." theme="light" />
 
 				<div className="mt-10 grid gap-10 lg:grid-cols-[1fr_0.9fr] lg:items-center">
 					<div>
