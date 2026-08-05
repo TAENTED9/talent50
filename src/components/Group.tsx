@@ -36,8 +36,8 @@ export default function Group() {
 		<section id="group" className="bg-paper py-[clamp(84px,13vh,170px)] text-ink">
 			<div className="mx-auto max-w-content px-5 md:px-[5vw] lg:px-[72px]">
 				<div className="mb-[clamp(44px,6vh,76px)] flex flex-wrap items-end justify-between gap-6">
-					<SectionHeading eyebrow="02 — The group" title="One group. Three pillars." theme="light" titleClassName="mb-0" />
-					<p className="max-w-[32ch] text-[clamp(16px,1.2vw,18px)] font-light leading-[1.55] text-muted-dark">The Talent50 Group builds and operates sports assets such as teams, the media that carries them, and the technology that connects both to fans and markets.</p>
+					<SectionHeading eyebrow="02 — The group" title="One company. Three pillars." theme="light" titleClassName="mb-0" />
+					<p className="max-w-[32ch] text-[clamp(16px,1.2vw,18px)] font-light leading-[1.55] text-muted-dark">The Talent50 Company builds and operates sports assets such as teams, the media that carries them, and the technology that connects both to fans and markets.</p>
 				</div>
 
 				<div className="grid gap-[clamp(28px,3.5vw,56px)] md:grid-cols-3">
