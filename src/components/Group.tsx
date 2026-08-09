@@ -13,7 +13,7 @@ const pillars = [
 	},
 	{
 		number: '02',
-		title: 'Media',
+		title: 'Media and Representation',
 		kicker: 'Content & channels',
 		copy: 'Owned content and channels that turn our teams and talent into stories, audiences and reach.',
 		href: 'https://talent50.com',

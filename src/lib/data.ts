@@ -3,7 +3,7 @@ export interface StatItem { value: string; text: string; }
 
 export const groupLinks: GroupLink[] = [
   { label: 'Teams', value: 'Live' },
-  { label: 'Media', value: 'Live' },
+  { label: 'Media and Representation', value: 'Live' },
   { label: 'Tech', value: 'Live' },
 ];
 
