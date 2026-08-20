@@ -19,7 +19,7 @@ export default function Impact() {
 					<div className="mt-5 text-[12.5px] font-light text-muted-dark">SDG 8 · SDG 10 · SDG 11 · SDG 4 · IRIS+ aligned KPIs</div>
 
 					<div className="relative mt-6 aspect-[4/3] overflow-hidden rounded-2xl shadow-soft">
-						<Image src="/assets/impact.jpg" alt="Coaching and community impact" fill sizes="(max-width: 768px) 100vw, 35vw" className="object-cover" />
+						<Image src="/assets/impact.jpg" alt="Coaching and community impact" fill quality={90} sizes="(max-width: 768px) 100vw, 35vw" className="object-cover" />
 					</div>
 				</div>
 			</div>

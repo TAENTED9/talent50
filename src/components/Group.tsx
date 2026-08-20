@@ -44,7 +44,7 @@ export default function Group() {
 					{pillars.map((pillar) => (
 						<article key={pillar.number} className="rounded-2xl bg-ink/5 p-7 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:ring-1 hover:ring-accent/40 hover:shadow-soft-lg">
 							<div className="relative mb-5 aspect-[4/3] overflow-hidden rounded-2xl shadow-soft">
-								<Image src={pillar.image} alt={pillar.title} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover transition-transform duration-500 hover:scale-105" />
+								<Image src={pillar.image} alt={pillar.title} fill quality={90} sizes="(max-width: 768px) 100vw, 33vw" className="object-cover transition-transform duration-500 hover:scale-105" />
 							</div>
 							<div className="mb-5 flex justify-between">
 								<strong className="font-display text-[clamp(34px,3.4vw,54px)] leading-[.85]">{pillar.number}</strong>

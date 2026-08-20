@@ -19,7 +19,7 @@ export default function Market() {
 					</div>
 
 					<div className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-soft lg:aspect-auto lg:h-full lg:min-h-[420px]">
-						<Image src="/assets/market.jpg" alt="African sports audience" fill sizes="(max-width: 1024px) 100vw, 45vw" className="object-cover" />
+						<Image src="/assets/market.jpg" alt="African sports audience" fill quality={90} sizes="(max-width: 1024px) 100vw, 45vw" className="object-cover" />
 					</div>
 				</div>
 			</div>

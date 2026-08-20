@@ -11,7 +11,7 @@ export default function About() {
         { src: '/assets/about-3.jpg', alt: 'Community program' },
       ].map((p) => (
         <div key={p.src} className={`relative overflow-hidden rounded-2xl shadow-soft ring-1 ring-ink/5 ${p.span ?? ''}`}>
-          <Image src={p.src} alt={p.alt} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" className="object-cover transition-transform duration-500 hover:scale-105" />
+          <Image src={p.src} alt={p.alt} fill quality={90} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" className="object-cover transition-transform duration-500 hover:scale-105" />
         </div>
       ))}
     </div>
